@@ -27,7 +27,6 @@ fetch("datos/marvel.json")
 
 // Crear opciones desplegables dinámicamente
 function crearFiltros() {
-    // Extraer universos únicos dividiendo por "/"
     const universosSet = new Set();
     peliculas.forEach(p => {
         if (p.universo) {
@@ -35,7 +34,6 @@ function crearFiltros() {
         }
     });
     const universos = [...universosSet].sort();
-
     const tipos = [...new Set(peliculas.map(p => p.tipo).filter(Boolean))].sort();
     const sagas = [...new Set(peliculas.map(p => p.saga).filter(Boolean))].sort();
 
@@ -43,6 +41,8 @@ function crearFiltros() {
         const opcion = document.createElement("option");
         opcion.value = universo;
         opcion.textContent = universo;
+        // Seleccionar MCU por defecto
+        if (universo === "MCU") opcion.selected = true;
         filtroUniverso.appendChild(opcion);
     });
 
@@ -50,6 +50,8 @@ function crearFiltros() {
         const opcion = document.createElement("option");
         opcion.value = tipo;
         opcion.textContent = tipo;
+        // Seleccionar Película por defecto
+        if (tipo === "Película") opcion.selected = true;
         filtroTipo.appendChild(opcion);
     });
 
