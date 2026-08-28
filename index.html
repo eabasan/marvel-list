@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marvel Watchlist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo-box">MARVEL</div>
+        <h1>GUÍA DEFINITIVA</h1>
+        <p>Tu lista para ver en orden todas las películas y series</p>
+    </header>
+
+    <main>
+
+        <section class="filtros-container">
+
+            <div class="buscador">
+                <input type="text" id="buscador" placeholder="🔍 Buscar por título...">
+            </div>
+
+            <div class="filtros">
+                <div class="filtro">
+                    <label for="universo">Universo</label>
+                    <select id="universo">
+                        <option value="todos">Todos los universos</option>
+                    </select>
+                </div>
+
+                <div class="filtro">
+                    <label for="tipo">Tipo</label>
+                    <select id="tipo">
+                        <option value="todos">Todos los tipos</option>
+                    </select>
+                </div>
+
+                <div class="filtro">
+                    <label for="saga">Saga</label>
+                    <select id="saga">
+                        <option value="todos">Todas las sagas</option>
+                    </select>
+                </div>
+
+                <div class="filtro">
+                    <label for="orden">Ordenar por</label>
+                    <select id="orden">
+                        <option value="cronologico">Orden cronológico</option>
+                        <option value="estreno">Fecha de estreno</option>
+                    </select>
+                </div>
+            </div>
+
+        </section>
+
+        <div id="contador-resultados" class="contador"></div>
+
+        <section id="peliculas" class="grid-peliculas"></section>
+
+    </main>
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
