@@ -27,7 +27,15 @@ fetch("datos/marvel.json")
 
 // Crear opciones desplegables dinámicamente
 function crearFiltros() {
-    const universos = [...new Set(peliculas.map(p => p.universo).filter(Boolean))].sort();
+    // Extraer universos únicos dividiendo por "/"
+    const universosSet = new Set();
+    peliculas.forEach(p => {
+        if (p.universo) {
+            p.universo.split('/').forEach(u => universosSet.add(u.trim()));
+        }
+    });
+    const universos = [...universosSet].sort();
+
     const tipos = [...new Set(peliculas.map(p => p.tipo).filter(Boolean))].sort();
     const sagas = [...new Set(peliculas.map(p => p.saga).filter(Boolean))].sort();
 
@@ -66,9 +74,13 @@ function mostrarPeliculas() {
         );
     }
 
-    // Filtro universo
+    // Filtro universo (soporta valores múltiples como "MCU / X-Men")
     if (filtroUniverso.value !== "todos") {
-        resultado = resultado.filter(p => p.universo === filtroUniverso.value);
+        resultado = resultado.filter(p => {
+            if (!p.universo) return false;
+            const universosPeli = p.universo.split('/').map(u => u.trim());
+            return universosPeli.includes(filtroUniverso.value);
+        });
     }
 
     // Filtro tipo
@@ -105,8 +117,7 @@ function mostrarPeliculas() {
         const tarjeta = document.createElement("article");
         tarjeta.className = "tarjeta";
 
-        // URL del póster de TMDB o placeholder por defecto
-        // Reemplázalo por este código en app.js:
+        // URL del póster
         const posterBaseUrl = "https://image.tmdb.org/t/p/w500";
         const posterUrl = pelicula.poster && pelicula.poster.startsWith('/')
             ? `${posterBaseUrl}${pelicula.poster}`
@@ -117,6 +128,12 @@ function mostrarPeliculas() {
         const anio = fechaRaw ? fechaRaw.substring(0, 4) : "—";
         const puntuacion = pelicula.puntuacion || pelicula.vote_average ? Number(pelicula.puntuacion || pelicula.vote_average).toFixed(1) : null;
         const duracion = pelicula.duracion ? `${pelicula.duracion} min` : null;
+
+        // Renderizar pastillas de universo independientes
+        const tagsUniverso = (pelicula.universo || 'Marvel')
+            .split('/')
+            .map(u => `<span class="tag tag-universo">${u.trim()}</span>`)
+            .join('');
 
         tarjeta.innerHTML = `
             <div class="poster-box">
@@ -129,8 +146,8 @@ function mostrarPeliculas() {
                 
                 <div class="etiquetas">
                     <span class="tag tag-tipo">${pelicula.tipo || 'Película'}</span>
-                    <span class="tag tag-universo">${pelicula.universo || 'Marvel'}</span>
-                    ${pelicula.fase ? `<span class="tag tag-fase">Fase ${pelicula.fase}</span>` : ''}
+                    ${tagsUniverso}
+                    ${pelicula.fase && !isNaN(pelicula.fase) ? `<span class="tag tag-fase">Fase ${pelicula.fase}</span>` : ''}
                 </div>
 
                 <div class="detalles">
