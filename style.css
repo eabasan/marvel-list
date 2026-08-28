@@ -15,7 +15,7 @@ body {
 /* Header */
 header {
     text-align: center;
-    padding: 40px 20px 20px;
+    padding: 30px 15px 15px;
     background: linear-gradient(180deg, rgba(230, 36, 41, 0.15) 0%, rgba(15, 16, 21, 0) 100%);
 }
 
@@ -24,31 +24,31 @@ header {
     background-color: #e62429;
     color: white;
     font-weight: 900;
-    font-size: 1.8rem;
-    padding: 4px 15px;
+    font-size: 1.5rem;
+    padding: 3px 12px;
     letter-spacing: -1px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     box-shadow: 0 4px 15px rgba(230, 36, 41, 0.4);
 }
 
 header h1 {
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-weight: 900;
-    letter-spacing: 2px;
-    margin-bottom: 8px;
+    letter-spacing: 1.5px;
+    margin-bottom: 6px;
     color: #ffffff;
 }
 
 header p {
     color: #9e9ea7;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
 }
 
 /* Contenedor Principal */
 main {
     max-width: 1300px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 15px;
 }
 
 /* Filtros y Buscador */
@@ -56,23 +56,23 @@ main {
     background: #181920;
     border: 1px solid #282932;
     border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 25px;
+    padding: 16px;
+    margin-bottom: 20px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
 .buscador {
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .buscador input {
     width: 100%;
-    padding: 12px 16px;
+    padding: 10px 14px;
     background: #0f1015;
     border: 1px solid #363845;
     border-radius: 8px;
     color: #fff;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-family: inherit;
     outline: none;
     transition: border-color 0.2s;
@@ -84,18 +84,18 @@ main {
 
 .filtros {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
 }
 
 .filtro {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 4px;
 }
 
 .filtro label {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
     color: #8c8d99;
@@ -103,12 +103,12 @@ main {
 }
 
 .filtro select {
-    padding: 10px 12px;
+    padding: 8px 10px;
     background: #0f1015;
     border: 1px solid #363845;
     border-radius: 8px;
     color: #fff;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-family: inherit;
     cursor: pointer;
     outline: none;
@@ -121,33 +121,34 @@ main {
 
 /* Contador */
 .contador {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: #7b7c89;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     font-weight: 600;
 }
 
-/* Grid de Películas */
+/* Grid de Películas - Responsive */
 .grid-peliculas {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 25px;
+    /* En pantallas grandes auto-ajusta */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
 }
 
 /* Tarjeta */
 .tarjeta {
     background: #181920;
-    border-radius: 12px;
+    border-radius: 10px;
     overflow: hidden;
     border: 1px solid #282932;
     display: flex;
     flex-direction: column;
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .tarjeta:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
     border-color: #e62429;
 }
 
@@ -167,56 +168,55 @@ main {
 
 .badge-numero {
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: 8px;
+    left: 8px;
     background: rgba(0, 0, 0, 0.75);
     backdrop-filter: blur(4px);
     color: #fff;
     font-weight: 700;
-    font-size: 0.8rem;
-    padding: 4px 8px;
-    border-radius: 6px;
+    font-size: 0.75rem;
+    padding: 3px 6px;
+    border-radius: 5px;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .badge-rating {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 8px;
+    right: 8px;
     background: rgba(230, 36, 41, 0.9);
     color: #fff;
     font-weight: 700;
-    font-size: 0.8rem;
-    padding: 4px 8px;
-    border-radius: 6px;
+    font-size: 0.75rem;
+    padding: 3px 6px;
+    border-radius: 5px;
 }
 
 .contenido-tarjeta {
-    padding: 16px;
+    padding: 12px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    gap: 8px;
+    gap: 6px;
 }
 
 .contenido-tarjeta h2 {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     font-weight: 700;
     color: #fff;
-    line-height: 1.3;
+    line-height: 1.25;
 }
 
 .etiquetas {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 4px;
+    gap: 4px;
 }
 
 .tag {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     font-weight: 600;
-    padding: 2px 8px;
+    padding: 2px 6px;
     border-radius: 4px;
     text-transform: uppercase;
 }
@@ -238,24 +238,23 @@ main {
 
 .detalles {
     display: flex;
-    gap: 15px;
-    font-size: 0.8rem;
+    gap: 10px;
+    font-size: 0.75rem;
     color: #8c8d99;
     font-weight: 600;
-    margin-top: 4px;
 }
 
 .saga-texto {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: #a5a6b2;
     font-style: italic;
 }
 
 .sinopsis {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: #80818d;
-    line-height: 1.4;
-    margin-top: 6px;
+    line-height: 1.35;
+    margin-top: 4px;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
@@ -267,7 +266,45 @@ main {
 .mensaje-vacio {
     grid-column: 1 / -1;
     text-align: center;
-    padding: 40px;
+    padding: 30px;
     color: #8c8d99;
-    font-size: 1.1rem;
+    font-size: 1rem;
+}
+
+/* --- AJUSTES ESPECÍFICOS PARA MÓVIL --- */
+@media (max-width: 600px) {
+    main {
+        padding: 0 10px;
+    }
+
+    /* Forzar 2 columnas en pantallas móviles */
+    .grid-peliculas {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    /* En los filtros poner 2 por fila */
+    .filtros {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .contenido-tarjeta {
+        padding: 8px;
+        gap: 4px;
+    }
+
+    .contenido-tarjeta h2 {
+        font-size: 0.85rem;
+    }
+
+    /* Ocultar la sinopsis en móvil para que las tarjetas queden parejas y limpias */
+    .sinopsis {
+        display: none;
+    }
+
+    .detalles {
+        flex-direction: column;
+        gap: 2px;
+    }
 }
